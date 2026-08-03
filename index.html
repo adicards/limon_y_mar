@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO Y META TAGS PARA LA PREVISUALIZACIÓN EN WHATSAPP -->
+    <title>Limón y Mar</title>
+    <meta name="description" content="Limón y Mar. Tarjeta Digital Business por AdiCards.">
+    
+    <!-- Meta Tags Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Limón y Mar">
+    <meta property="og:description" content="Sublimación">
+    <meta property="og:image" content="https://adicards.github.io/limon_y_mar/flyer3.jpg">
+    <meta property="og:url" content="https://adicards.github.io/limon_y_mar">
+
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           ESTILOS BASE Y VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-body: #000000;
+            --card-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --accent-circle: #2c2c2e;
+            --radius-card: 24px;
+            --brand-green: #8cc63f;
+            --brand-teal: #00a896;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-body);
+            position: relative;
+        }
+
+        /* HERO SECTION */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            background-image: url('https://adicards.github.io/limon_y_mar/flyer3.jpg');
+            background-size: cover;
+            background-position: center top;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #e5e5e5;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .hero-tag {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .mini-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* ACCIONES RÁPIDAS CIRCULARES */
+        .quick-actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 16px;
+            padding: 24px 20px 12px 20px;
+        }
+
+        .action-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--accent-circle);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        /* Colores personalizados para acciones rápidas */
+        .action-circle.btn-phone {
+            background-color: #007AFF;
+        }
+
+        .action-circle.btn-email {
+            background-color: #EA4335;
+        }
+
+        .action-circle.btn-whatsapp {
+            background-color: #25D366;
+            font-size: 1.5rem;
+        }
+
+        .action-circle:active {
+            transform: scale(0.92);
+        }
+
+        /* CARDS BLANCAS */
+        .content-section {
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .white-card {
+            background-color: var(--card-white);
+            color: var(--text-dark);
+            border-radius: var(--radius-card);
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .card-description {
+            font-size: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .card-header-icon {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .icon-box-black {
+            width: 44px;
+            height: 44px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* BOTONES DE ACCIÓN PRINCIPALES */
+        .action-btn-full {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            border: none;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .action-btn-full:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        .btn-payment-style {
+            background: linear-gradient(135deg, #00a896, #028090);
+        }
+
+        /* BRANDING ADICARDS */
+        .adicards-branding {
+            text-align: center;
+            padding: 28px 16px 12px;
+        }
+
+        .adicards-branding img {
+            max-width: 140px;
+            height: auto;
+            opacity: 0.9;
+        }
+
+        /* BARRA FLOTANTE INFERIOR (DOCK) */
+        .dock-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 440px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .dock-left-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dock-btn-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #262626;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .dock-btn-icon:active {
+            transform: scale(0.92);
+        }
+
+        .dock-btn-main {
+            background-color: #2c2c2e;
+            color: #ffffff;
+            padding: 8px 12px 8px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .dock-btn-main:active {
+            transform: scale(0.96);
+        }
+
+        .dock-btn-main span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: right;
+        }
+
+        .plus-circle {
+            width: 34px;
+            height: 34px;
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        /* MODALES EMERGENTES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #000;
+            padding: 28px 20px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 340px;
+            width: 100%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 200px;
+            height: 200px;
+            margin: 15px 0;
+        }
+
+        .payment-list {
+            text-align: left;
+            margin: 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background-color: #f3f4f6;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .payment-item i {
+            font-size: 1.2rem;
+            color: var(--brand-teal);
+            width: 24px;
+            text-align: center;
+        }
+
+        .close-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Limón y Mar</h1>
+                <p class="hero-subtitle">SUBLIMACIÓN</p>
+                <p class="hero-tag">Colores que transforman</p>
+                <img src="https://adicards.github.io/limon_y_mar/logo_limon_mar_square.png" alt="Thumb" class="mini-avatar">
+            </div>
+        </div>
+
+        <!-- Acciones Rápidas -->
+        <div class="quick-actions">
+            <a href="tel:9987606286" class="action-circle btn-phone"><i class="fa-solid fa-mobile-screen-button"></i></a>
+            <a href="mailto:limonymar.sublimar@gmail.com" class="action-circle btn-email"><i class="fa-regular fa-envelope"></i></a>
+            <a href="https://wa.me/529987606286" class="action-circle btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+
+        <!-- Cards de Contenido -->
+        <div class="content-section">
+            
+            <!-- About Me -->
+            <div class="white-card">
+                <h2 class="card-title">Acerca de Limón y Mar</h2>
+                <p class="card-description">Diseños personalizados para cumpleaños, 15 años, bodas, despedidas, eventos sociales y corporativos.<br><br>Sublimación en playeras, gorras, tazas, bolsas de tela y mucho más!</p>
+            </div>
+
+            <!-- Card de Formas de Pago (NUEVA SECCIÓN QUE REEMPLAZA REDES SOCIALES) -->
+            <div class="white-card">
+                <div class="card-header-icon">
+                    <div class="icon-box-black">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span>Formas de Pago</span>
+                </div>
+
+                <button onclick="openPaymentModal()" class="action-btn-full btn-payment-style">
+                    <i class="fa-solid fa-credit-card"></i> Ver Métodos de Pago
+                </button>
+            </div>
+
+            <!-- Card de Sitio Web -->
+            <div class="white-card">
+                <div class="card-header-icon">
+                    <div class="icon-box-black">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <span>Sitio Web</span>
+                </div>
+
+                <a href="https://adi.vpexperiencegroup.com.mx" target="_blank" class="action-btn-full">
+                    <i class="fa-solid fa-earth-americas"></i> Visitar Sitio Web
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Branding AdiCards -->
+        <div class="adicards-branding">
+            <img src="adicards-logo.png" alt="AdiCards">
+        </div>
+
+        <!-- Barra Flotante Inferior -->
+        <div class="dock-bar">
+            <div class="dock-left-buttons">
+                <div class="dock-btn-icon" onclick="openQRModal()" title="Ver QR">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+                <div class="dock-btn-icon" onclick="shareCard()" title="Compartir">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </div>
+            </div>
+
+            <div class="dock-btn-main" onclick="downloadVCard()">
+                <span>Añadir<br>Contacto</span>
+                <div class="plus-circle">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Emergente del Código QR -->
+    <div id="qrModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 style="font-size: 1.2rem;">Escanea el código QR</h3>
+            <img id="qrImage" src="" alt="Código QR">
+            <p style="font-size: 0.85rem; color: #666;">Comparte esta tarjeta fácilmente</p>
+            <button class="close-btn" onclick="closeQRModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal Emergente de Formas de Pago -->
+    <div id="paymentModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Métodos de Pago</h3>
+            <p style="font-size: 0.85rem; color: #666;">Aceptamos las siguientes opciones para tus pedidos:</p>
+            
+            <div class="payment-list">
+                <div class="payment-item">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Transferencia bancaria (SPEI)</span>
+                </div>
+                <div class="payment-item">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Depósito en efectivo (OXXO / Bancos)</span>
+                </div>
+                <div class="payment-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Pago con tarjeta de crédito / débito</span>
+                </div>
+            </div>
+
+            <button class="close-btn" onclick="closePaymentModal()">Entendido</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT FUNCIONAL
+       ========================================================================== -->
+    <script>
+        // 1. FUNCIONALIDAD CÓDIGO QR
+        function openQRModal() {
+            const currentURL = window.location.href;
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentURL)}`;
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+
+        function closeQRModal() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+
+        // 2. FUNCIONALIDAD MODAL FORMAS DE PAGO
+        function openPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        // 3. FUNCIONALIDAD COMPARTIR
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Limón y Mar | Sublimación',
+                    text: 'Te comparto la tarjeta digital de Limón y Mar',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('¡Enlace copiado al portapapeles!');
+            }
+        }
+
+        // 4. FUNCIONALIDAD DESCARGAR VCF
+        function downloadVCard() {
+            const vcardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN:Limón y Mar - Berenice Cardenas
+ORG:Limón y Mar
+TITLE:Sublimación 
+TEL;TYPE=CELL:9987606286
+EMAIL:limonymar.sublimar@gmail.com
+URL:${window.location.href}
+END:VCARD`;
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Limonymar_Bere.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
