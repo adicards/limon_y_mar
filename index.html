@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- TÍTULO Y META TAGS PARA LA PREVISUALIZACIÓN EN WHATSAPP -->
-    <title>ADI | Arte, Diseño & Impresión</title>
-    <meta name="description" content="Arte, Diseño & Impresión. Tarjeta Digital Business por AdiCards.">
+    <title>Limón y Mar</title>
+    <meta name="description" content="Limón y Mar. Tarjeta Digital Business por AdiCards.">
     
     <!-- Meta Tags Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ADI">
-    <meta property="og:description" content="Arte, Diseño & Impresión">
-    <meta property="og:image" content="https://adicards.github.io/adivictorhperez/ADI Logo.png">
-    <meta property="og:url" content="https://adicards.github.io/adivictorhperez">
+    <meta property="og:title" content="Limón y Mar">
+    <meta property="og:description" content="Sublimación">
+    <meta property="og:image" content="https://adicards.github.io/limon_y_mar/flyer3.jpg">
+    <meta property="og:url" content="https://adicards.github.io/limon_y_mar">
 
     <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,7 +60,7 @@
             position: relative;
             width: 100%;
             height: 420px;
-            background-image: url('https://adicards.github.io/adivictorhperez/ADI Logo.png');
+            background-image: url('https://adicards.github.io/limo_y_mar/flyer3.jpg');
             background-size: cover;
             background-position: center top;
             display: flex;
@@ -378,18 +378,18 @@
         <div class="hero-banner">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">ADI</h1>
-                <p class="hero-subtitle">Arte, Diseño & Impresión</p>
-                <p class="hero-tag">Victor H. Pérez</p>
-                <img src="https://adicards.github.io/adivictorhperez/user-avatar.png" alt="Thumb" class="mini-avatar">
+                <h1 class="hero-title">Limón y Mar</h1>
+                <p class="hero-subtitle">SUBLIMACIÓN</p>
+                <p class="hero-tag">Colores que transforman</p>
+                <img src="https://adicards.github.io/limon_y_mar/logo_limon_mar_square.png" alt="Thumb" class="mini-avatar">
             </div>
         </div>
 
         <!-- Acciones Rápidas -->
         <div class="quick-actions">
-            <a href="tel:5655576283" class="action-circle btn-phone"><i class="fa-solid fa-mobile-screen-button"></i></a>
-            <a href="mailto:contacto@adi.vpexperiencegroup.com.mx" class="action-circle btn-email"><i class="fa-regular fa-envelope"></i></a>
-            <a href="https://wa.me/525655576283" class="action-circle btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:9987606286" class="action-circle btn-phone"><i class="fa-solid fa-mobile-screen-button"></i></a>
+            <a href="mailto:limonymar.sublimar@gmail.com" class="action-circle btn-email"><i class="fa-regular fa-envelope"></i></a>
+            <a href="https://wa.me/529987606286" class="action-circle btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
 
         <!-- Cards de Contenido -->
@@ -397,8 +397,9 @@
             
             <!-- About Me -->
             <div class="white-card">
-                <h2 class="card-title">Acerca de ADI</h2>
-                <p class="card-description">Llevamos transformando la comunicación digital y marketing web POR MÁS DE 20 AÑOS. Somos una empresa donde la Ingeniería Humana es aplicada a la Imagen Corporativa, porque detrás de cada estrategia digital, siempre hay un ser humano tomando decisiones.</p>
+                <h2 class="card-title">Acerca de Limón y Mar</h2>
+                <p class="card-description">Diseños personalizados para cumpleaños, 15 años, bodas, despedidas, eventos sociales y corporativos. 
+Sublimación en playeras, gorras, tazas, bolsas de tela y mucho más!</p>
             </div>
 
             <!-- Card de Redes Sociales -->
@@ -513,8 +514,8 @@
         function shareCard() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'ADI | Arte, Diseño & Impresión',
-                    text: 'Te comparto la tarjeta digital de ADI (Victor H. Pérez)',
+                    title: 'Limón y Mar | Sublimación',
+                    text: 'Te comparto la tarjeta digital de Limón y Mar',
                     url: window.location.href
                 }).catch(() => {});
             } else {
@@ -528,11 +529,11 @@
             const vcardData = 
 `BEGIN:VCARD
 VERSION:3.0
-FN:ADI - Victor H. Pérez
-ORG:ADI Arte Diseño & Impresión
-TITLE:Arte, Diseño & Impresión
-TEL;TYPE=CELL:5655576283
-EMAIL:contacto@adi.vpexperiencegroup.com.mx
+FN:Limón y Mar - Berenice Cardenas
+ORG:ADI Limón y Mar
+TITLE:Sublimación 
+TEL;TYPE=CELL:9987606286
+EMAIL:limonymar.sublimar@gmail.com
 URL:${window.location.href}
 END:VCARD`;
 
@@ -540,7 +541,7 @@ END:VCARD`;
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'ADI_Victor_H_Perez.vcf');
+            link.setAttribute('download', 'Limonymar_Bere.vcf');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
