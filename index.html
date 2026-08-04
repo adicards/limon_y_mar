@@ -319,72 +319,93 @@
         }
 
         /* MODALES EMERGENTES */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+        /* MODALES EMERGENTES CORREGIDOS */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
 
-        .modal-content {
-            background: #ffffff;
-            color: #000;
-            padding: 28px 20px;
-            border-radius: 24px;
-            text-align: center;
-            max-width: 340px;
-            width: 100%;
-            position: relative;
-        }
+.modal-content {
+    background: #ffffff;
+    color: #000;
+    padding: 24px 18px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 360px;
+    width: 92%;
+    max-height: 85vh; /* Evita que el modal sea más alto que la pantalla */
+    overflow-y: auto;  /* Si el contenido supera la pantalla, permite scroll suave */
+    position: relative;
+}
 
-        .modal-content img {
-            width: 200px;
-            height: 200px;
-            margin: 15px 0;
-        }
+.payment-list {
+    text-align: left;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-        .payment-list {
-            text-align: left;
-            margin: 16px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+.payment-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
 
-        .payment-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px;
-            background-color: #f3f4f6;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+.payment-item i {
+    font-size: 1.1rem;
+    color: var(--brand-teal);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
 
-        .payment-item i {
-            font-size: 1.2rem;
-            color: var(--brand-teal);
-            width: 24px;
-            text-align: center;
-        }
+.bank-info-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 8px;
+    text-align: center;
+}
 
-        .close-btn {
-            background: #000;
-            color: #fff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 100%;
-        }
+.bank-info-box p {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.bank-info-box strong {
+    color: #0f172a;
+    font-weight: 700;
+    display: block;
+    word-break: break-all;
+}
+
+.close-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 14px;
+    width: 100%;
+}
     </style>
 </head>
 <body>
@@ -514,28 +535,33 @@
     </div>
 
     <!-- Modal Emergente de Formas de Pago -->
-    <div id="paymentModal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Métodos de Pago</h3>
-            <p style="font-size: 0.85rem; color: #666;">Aceptamos las siguientes opciones para tus pedidos:</p>
-            
-            <div class="payment-list">
-                <div class="payment-item">
-                    <i class="fa-solid fa-money-bill-transfer"></i>
-                    <span>Transferencia bancaria (SPEI)</span>
-                </div>
-                <div class="payment-item">
-                    <i class="fa-solid fa-money-bill-wave"></i>
-                    <span>Depósito en efectivo (OXXO / Bancos)</span>
-                </div>
-               <p class="card-description">Clabe 014691569183708631
-             <br>Número de cuenta 56918370863<br><br>A nombre de: Berenice Sarai Cardenas Vargas</p>
-            </div>
+<div id="paymentModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Métodos de Pago</h3>
+        <p style="font-size: 0.8rem; color: #666;">Aceptamos las siguientes opciones para tus pedidos:</p>
+        
+        <div class="payment-list">
+            <div class="payment-item">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span>Transferencia bancaria (SPEI)</span>
             </div>
 
-            <button class="close-btn" onclick="closePaymentModal()">Entendido</button>
+            <div class="payment-item">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Depósito en efectivo (OXXO / Bancos)</span>
+            </div>
+
+            <!-- Datos bancarios limpios y organizados -->
+            <div class="bank-info-box">
+                <p><strong>CLABE</strong> 014691569183708631</p>
+                <p><strong>Número de cuenta</strong> 56918370863</p>
+                <p style="margin-top: 6px; font-size: 0.8rem;">
+            </div>
         </div>
+
+        <button class="close-btn" onclick="closePaymentModal()">Entendido</button>
     </div>
+</div>
 
     <!-- ==========================================================================
        JAVASCRIPT FUNCIONAL
