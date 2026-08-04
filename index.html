@@ -432,18 +432,19 @@
                 </button>
             </div>
 
-            <!-- Card de Sitio Web -->
-            <div class="white-card">
-                <div class="card-header-icon">
-                    <div class="icon-box-black">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
-                    <span>Sitio Web</span>
-                </div>
+            <!-- Card de Galería de Productos -->
+<div class="white-card">
+    <div class="card-header-icon">
+        <div class="icon-box-black">
+            <i class="fa-solid fa-images"></i>
+        </div>
+        <span>Nuestros Productos</span>
+    </div>
 
-                <a href="https://adi.vpexperiencegroup.com.mx" target="_blank" class="action-btn-full">
-                    <i class="fa-solid fa-earth-americas"></i> Visitar Sitio Web
-                </a>
+    <button onclick="openGalleryModal()" class="action-btn-full btn-payment-style">
+        <i class="fa-solid fa-store"></i> Ver Galería de Productos
+    </button>
+</div>
             </div>
 
         </div>
@@ -507,12 +508,89 @@
 
             <button class="close-btn" onclick="closePaymentModal()">Entendido</button>
         </div>
+        
+        <!-- Modal Emergente de Galería de Productos -->
+<div id="galleryModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 400px; padding: 20px;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Catálogo de Productos</h3>
+        
+        <!-- Visor / Carrusel de Imágenes -->
+        <div class="gallery-container" style="position: relative; width: 100%; border-radius: 16px; overflow: hidden; background: #f3f4f6;">
+            <img id="galleryViewer" src="https://adicards.github.io/limon_y_mar/flyer3.jpg" alt="Producto Limón y Mar" style="width: 100%; height: 260px; object-fit: cover; display: block;">
+            
+            <!-- Botones de navegación -->
+            <button onclick="prevImage()" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: #fff; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer;">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextImage()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: #fff; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer;">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <p id="imageCaption" style="font-size: 0.9rem; font-weight: 600; margin-top: 10px; color: #1a1a1a;">
+            Playeras Personalizadas
+        </p>
+        <p id="imageCounter" style="font-size: 0.75rem; color: #666; margin-bottom: 12px;">
+            1 / 4
+        </p>
+
+        <button class="close-btn" onclick="closeGalleryModal()">Cerrar Galería</button>
+    </div>
+</div>
     </div>
 
     <!-- ==========================================================================
        JAVASCRIPT FUNCIONAL
        ========================================================================== -->
     <script>
+        // LISTA DE PRODUCTOS / IMÁGENES DE LA GALERÍA
+const productGallery = [
+    {
+        url: "https://adicards.github.io/limon_y_mar/flyer3.jpg",
+        title: "Playeras Personalizadas"
+    },
+    {
+        url: "https://adicards.github.io/limon_y_mar/logo_limon_mar_square.png",
+        title: "Tazas y Termos Sublimados"
+    },
+    {
+        url: "https://adicards.github.io/limon_y_mar/flyer3.jpg",
+        title: "Gorras y Bolsas de Tela"
+    },
+    {
+        url: "https://adicards.github.io/limon_y_mar/logo_limon_mar_square.png",
+        title: "Crocks y Artículos de Eventos"
+    }
+];
+
+let currentImageIndex = 0;
+
+function openGalleryModal() {
+    currentImageIndex = 0;
+    updateGalleryView();
+    document.getElementById('galleryModal').style.display = 'flex';
+}
+
+function closeGalleryModal() {
+    document.getElementById('galleryModal').style.display = 'none';
+}
+
+function updateGalleryView() {
+    const item = productGallery[currentImageIndex];
+    document.getElementById('galleryViewer').src = item.url;
+    document.getElementById('imageCaption').innerText = item.title;
+    document.getElementById('imageCounter').innerText = `${currentImageIndex + 1} / ${productGallery.length}`;
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % productGallery.length;
+    updateGalleryView();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + productGallery.length) % productGallery.length;
+    updateGalleryView();
+}
         // 1. FUNCIONALIDAD CÓDIGO QR
         function openQRModal() {
             const currentURL = window.location.href;
